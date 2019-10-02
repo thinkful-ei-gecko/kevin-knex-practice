@@ -69,5 +69,4 @@ function getTotalCostPerCategory() {
       console.log(result);
     });
 }
-
-getTotalCostPerCategory();
+// getTotalCostPerCategory();

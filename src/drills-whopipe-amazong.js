@@ -16,7 +16,7 @@ const knexInstance = knex({
 //   });
 
 /**********************************************************
-  searchByProductName 
+  WHOPIPE/AMAZONG #1
 ***********************************************************/
 function searchByProductName(searchTerm) {
   knexInstance
@@ -30,7 +30,7 @@ function searchByProductName(searchTerm) {
 // searchByProductName('holo');
 
 /**********************************************************
-  paginateProducts 
+  WHOPIPE/AMAZONG #2 
 ***********************************************************/
 function paginateProducts(page) {
   const productsPerPage = 10;
@@ -47,7 +47,7 @@ function paginateProducts(page) {
 // paginateProducts(2);
 
 /**********************************************************
-  getProductsWithImages 
+  WHOPIPE/AMAZONG #3 
 ***********************************************************/
 function getProductsWithImages() {
   knexInstance
@@ -61,7 +61,7 @@ function getProductsWithImages() {
 // getProductsWithImages();
 
 /**********************************************************
-  mostPopularVideosForDays 
+  WHOPIPE/AMAZONG #4 
 ***********************************************************/
 function mostPopularVideosForDays(days) {
   knexInstance
