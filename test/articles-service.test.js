@@ -62,7 +62,7 @@ describe('ArticlesService', () => {
 
     it(`getAllArticles() resolves all articles from ${tableName} table`, () => {
       return ArticlesService.getAllArticles(db).then((actual) => {
-        expect(actual).to.eql(
+        chai.expect(actual).to.eql(
           testArticles.map((article) => ({
             ...article,
             date_published: new Date(article.date_published),
@@ -75,7 +75,7 @@ describe('ArticlesService', () => {
       const thirdId = 3;
       const thirdTestArticle = testArticles[thirdId - 1];
       return ArticlesService.getArticleById(db, thirdId).then((actual) => {
-        expect(actual).to.eql({
+        chai.expect(actual).to.eql({
           id: thirdId,
           title: thirdTestArticle.title,
           content: thirdTestArticle.content,
@@ -93,7 +93,7 @@ describe('ArticlesService', () => {
           const expected = testArticles.filter(
             (article) => article.id !== articleId
           );
-          expect(actual).to.eql(expected);
+          chai.expect(actual).to.eql(expected);
         });
     });
 
@@ -111,7 +111,7 @@ describe('ArticlesService', () => {
       )
         .then(() => ArticlesService.getArticleById(db, idOfArticleToUpdate))
         .then((article) => {
-          expect(article).to.eql({
+          chai.expect(article).to.eql({
             id: idOfArticleToUpdate,
             ...newArticleData,
           });
@@ -125,18 +125,18 @@ describe('ArticlesService', () => {
   context(`Given ${tableName} has NO data`, () => {
     it('getAllArticles() resolves an empty array', () => {
       return ArticlesService.getAllArticles(db).then((actual) => {
-        expect(actual).to.eql([]);
+        chai.expect(actual).to.eql([]);
       });
     });
 
-    it(`insertArticle() inserts a new article and resolves the new article with an 'id'`, () => {
+    it('insertArticle() inserts a new article and resolves the new article with an id', () => {
       const newArticle = {
         title: 'Test new title',
         content: 'Test new content',
         date_published: new Date('2020-01-01T00:00:00.000Z'),
       };
       return ArticlesService.insertArticle(db, newArticle).then((actual) => {
-        expect(actual).to.eql({
+        chai.expect(actual).to.eql({
           id: 1,
           title: newArticle.title,
           content: newArticle.content,
